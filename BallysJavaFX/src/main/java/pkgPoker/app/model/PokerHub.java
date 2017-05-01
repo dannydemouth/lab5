@@ -81,7 +81,7 @@ public class PokerHub extends Hub {
 				
 				// Add Players to Game
 				
-				HubGamePlay.addPlayerToGame(Table.getHmPlayer());
+				HubGamePlay.addPlayerToGame(actPlayer);
 				
 				// Set the order of players
 				
