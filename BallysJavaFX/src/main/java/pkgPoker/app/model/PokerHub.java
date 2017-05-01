@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import netgame.common.Hub;
 import pkgPokerBLL.Action;
@@ -71,11 +72,16 @@ public class PokerHub extends Hub {
 				Rule rle = new Rule(act.geteGame());
 				
 				//TODO Lab #5 - If neither player has 'the button', pick a random player
-				//		and assign the button.				
+				//		and assign the button.		
+				
 
 				//TODO Lab #5 - Start the new instance of GamePlay
 								
+				HubGamePlay = GamePlay(rle, UUID.randomUUID());
+				
 				// Add Players to Game
+				
+				HubGamePlay.addPlayerToGame(Table.getHmPlayer());
 				
 				// Set the order of players
 				
@@ -104,6 +110,11 @@ public class PokerHub extends Hub {
 			
 		}
 
+	}
+
+	private GamePlay GamePlay(Rule rle, UUID randomUUID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
