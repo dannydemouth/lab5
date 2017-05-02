@@ -73,8 +73,7 @@ public class PokerHub extends Hub {
 				Player DealerID = actPlayer;
 				
 				//TODO Lab #5 - If neither player has 'the button', pick a random player
-				//		and assign the button.		
-				
+				//		and assign the button.	
 
 				// Lab #5 - Start the new instance of GamePlay
 								
@@ -89,12 +88,10 @@ public class PokerHub extends Hub {
 
 			case Draw:
 
-				//TODO Lab #5 -	Draw card(s) for each player in the game.
-				
-				//TODO Lab #5 -	Make sure to set the correct visiblity
-				//TODO Lab #5 -	Make sure to account for community cards
-
-				//TODO Lab #5 -	Check to see if the game is over
+				eDrawCount last =  HubGamePlay.geteDrawCountLast();
+				HubGamePlay.seteDrawCountLast(last.geteDrawCount(last.getDrawNo()+1));
+				HubGamePlay.drawCard(actPlayer, eCardDestination.Player);
+								
 				HubGamePlay.isGameOver();
 				
 				resetOutput();
