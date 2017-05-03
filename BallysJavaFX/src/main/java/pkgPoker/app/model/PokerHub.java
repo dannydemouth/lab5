@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 import netgame.common.Hub;
@@ -72,8 +73,13 @@ public class PokerHub extends Hub {
 				Rule rle = new Rule(act.geteGame());
 				Player DealerID = actPlayer;
 				
-				//TODO Lab #5 - If neither player has 'the button', pick a random player
-				//		and assign the button.	
+				if (DealerID.getPlayerID() == null){
+					Random generator = new Random();
+					Player[] values = (Player[]) HubPokerTable.getHmPlayer().values().toArray();
+					Player randomPlayer = (Player) values[generator.nextInt(values.length)];
+					
+					DealerID = randomPlayer;
+				}
 
 				// Lab #5 - Start the new instance of GamePlay
 								
@@ -90,7 +96,10 @@ public class PokerHub extends Hub {
 
 				eDrawCount last =  HubGamePlay.geteDrawCountLast();
 				HubGamePlay.seteDrawCountLast(last.geteDrawCount(last.getDrawNo()+1));
-				HubGamePlay.drawCard(actPlayer, eCardDestination.Player);
+				for(Player p: HubPokerTable.getHmPlayer().values()){
+					HubGamePlay.drawCard(p, eCardDestination.Player);
+				}
+				
 								
 				HubGamePlay.isGameOver();
 				

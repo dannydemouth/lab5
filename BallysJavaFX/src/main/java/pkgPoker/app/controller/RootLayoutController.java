@@ -116,6 +116,8 @@ public class RootLayoutController implements Initializable {
 		//	Pot Limit (this is NOT the default)
 		//	Group them together with a Toggle Group
 		//	Write a method to return which is selected.. .check out getRuleName()
+		
+		//I thought betting was not allowed.
 
 	}
     
